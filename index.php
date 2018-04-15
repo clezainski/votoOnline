@@ -1,30 +1,3 @@
-<?php
-   include("config.php");
-   session_start();
-   
-   if($_SERVER["REQUEST_METHOD"] == "POST") {
-      
-      $usuario = mysqli_real_escape_string($db,$_POST['usuario']);
-      $senha = mysqli_real_escape_string($db,$_POST['senha']); 
-      
-      $sql = "SELECT id FROM eleitor WHERE username = '$usuario' and password = '$senha'";
-      $result = mysqli_query($db,$sql);
-      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      
-      $count = mysqli_num_rows($result);   
-		
-      if($count == 1) {         
-         $_SESSION['login_user'] = $usuario;
-         
-         header("location: novo_usuario.php");
-      }else {
-         echo"<script language='javascript' type='text/javascript'>alert('Usuário ou senha inválido.');</script>";
-      }
-   }
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -58,8 +31,11 @@
 	
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
-				<form class="login100-form validate-form flex-sb flex-w" action = "" method = "post">
+			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">		
+				<div>
+				<p align="center" style="color:red"><?php echo @$_GET['logout']; ?></p>
+				</div>
+				<form class="login100-form validate-form flex-sb flex-w" action = "login.php" method = "post">
 					<span class="login100-form-title p-b-32">
 						Voto Online
 					</span>
@@ -85,13 +61,17 @@
 					
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Entrar
-						</button>
+					 <input class="login100-form-btn" type="submit" value="Entrar" id="sub" name="sub">
+						
 					</div>
 
 				</form>
-			</div>
+				<div>
+				<p align="center" style="color:blue;"><?php echo @$_GET['sucesso']; ?></p>
+				<p align="center" style="color:red"><?php echo @$_GET['invalido']; ?></p>
+				</div>
+				
+			</div>			
 		</div>
 	</div>
 	
@@ -117,6 +97,3 @@
 
 </body>
 </html>
-
-
-
