@@ -7,7 +7,7 @@
      $username = $_POST['usuario'];
      $password = $_POST['senha'];
    
-     $query = "select * from eleitor where username='$username' and password='$password'";
+     $query = "select * from usuarios where nome='$username' and senha='$password'";
      $exe_query = mysqli_query($conn, $query);
      $found_num_rows = mysqli_num_rows($exe_query);
    
