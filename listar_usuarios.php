@@ -5,15 +5,7 @@
    $query = 'SELECT 
 			  email,
 			   nome, 
-			   sobrenome, 
-			   cpf,			    
-			   cep, 
-			   rua, 
-			   numero, 
-			   complemento, 
-			   bairro, 
-			   cidade, 
-			   estado
+			   sobrenome
 			   FROM usuarios
 		    ORDER BY id';
    
@@ -43,9 +35,10 @@
                <tr>
                   <td><?php echo htmlspecialchars($row['nome']); ?></td>
                   <td><?php echo htmlspecialchars($row['sobrenome']); ?></td>
-                  <td><?php echo htmlspecialchars($row['cpf']); ?></td>
+                  <td><?php echo htmlspecialchars($row['email']); ?></td>
                </tr>
-               <?php endwhile; ?>
+               <?php endwhile; 
+			   mysqli_close($conn);?>
             </tbody>
          </table>
    </body>
