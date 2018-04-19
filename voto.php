@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
    <head>
@@ -16,16 +17,14 @@
             Voto Online
             </a>
          </nav>
-      </div>
-	  
-	  
+      </div> 
 	  
       <form id="formfoto" action="" method="post">
          <div class="container">
             <h1>Votar</h1>
             <div class="row">
 			   <div class="col-sm">
-			   <!foto, informações, etc.>
+			 
 			   </div>
                <div class="col-sm">
                   <div class="form-group">
@@ -45,25 +44,20 @@
         disorder: true
     });
 </script>
-<script type="text/javascript">
-$("#numero").blur(function() {
-  document.getElementById("formfoto").submit();
-});
-</script>
+
 </html>
 
 <?php
     include './db.php';
     session_start();   
-    
+
     if(isset($_POST['sub'])){
-       $nome = $_POST['nome'];
-       $sobrenome = $_POST['sobrenome'];
-	   $numero = $_POST['numero'];   
-     
-       $query = "INSERT INTO candidatos (nome, sobrenome, numero, ativo) 
-		VALUES ('$nome', '$sobrenome', '$numero', '1')";
-       $result = mysqli_query($conn, $query);      
-    }
-    
+		$numero = $_POST['numero'];
+		
+		$query = "select * from candidatos where numero='$numero' and ativo='1'";
+		$result = mysqli_query($conn, $query);
+		$result=mysqli_fetch_array($result);
+		echo '<img src="data:image/jpeg;base64,'.base64_encode( $result["IMAGE"] ).'" height="200" width="200"/>';
+		
+}
     ?>

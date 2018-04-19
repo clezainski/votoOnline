@@ -20,6 +20,7 @@
                           NOME varchar(255),
    						  SOBRENOME varchar(255),
    						  NUMERO varchar(255) ,
+						  IMAGE longblob ,
 						  QUANT_VOTO int (11),
    						  ATIVO bool,
    						  PRIMARY KEY  (ID)

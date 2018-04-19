@@ -6,7 +6,7 @@
      $usuario = $_POST['usuario'];
      $password = md5($_POST['senha']);
 
-     $query = "select * from usuarios where nome='$usuario'";
+     $query = "select * from usuarios where nome='$usuario' and ativo='1'";
      $result = mysqli_query($conn, $query);
      $found_num_rows = mysqli_num_rows($result);
 
@@ -15,7 +15,8 @@
 
 	   if($password == $dbarray["SENHA"]){
 		   $_SESSION['login_user']=$usuario;
-			  header("location: welcome.php");
+		   $_SESSION['login_admin']=$dbarray["ADMIN"];
+			  header("location: dashboard.php");
 		   #  header("location:index.php?success=Login Sucessfull");
 		   #  header("refresh: 3; url=welcome.php");
 	   }
