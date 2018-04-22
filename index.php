@@ -1,106 +1,75 @@
+<?php
+include 'db.php';
+?>
+
 <!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <title>Voto Online</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <!--===============================================================================================-->
-</head>
-
+  <html>
+    <head>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>	  
+    </head>
 <body>
-
-    <div class="limiter">
-        <div class="container-login100">
-            <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
-                <div>
-                    <p align="center" style="color:red">
-                        <?php echo @$_GET['logout']; ?>
-                    </p>
-                </div>
-                <form class="login100-form validate-form flex-sb flex-w" action="login.php" method="post">
-                    <span class="login100-form-title p-b-32">
-						Voto Online
-					</span>
-
-                    <span class="txt1 p-b-11">
-						Usuário
-					</span>
-                    <div class="wrap-input100 validate-input m-b-36" data-validate="O usuário é necessário">
-                        <input class="input100" type="text" name="usuario">
-                        <span class="focus-input100"></span>
-                    </div>
-
-                    <span class="txt1 p-b-11">
-						Senha
-					</span>
-                    <div class="wrap-input100 validate-input m-b-12" data-validate="A senha é necessária">
-                        <span class="btn-show-pass">
-							<i class="fa fa-eye"></i>
-						</span>
-                        <input class="input100" type="password" name="senha">
-                        <span class="focus-input100"></span>
-                    </div>
-
-                    <div class="container-login100-form-btn">
-                        <input class="login100-form-btn" type="submit" value="Entrar" id="sub" name="sub">
-
-                    </div>
-
-                </form>
-                <div>
-                    <p align="center" style="color:blue;">
-                        <?php echo @$_GET['sucesso']; ?>
-                    </p>
-                    <p align="center" style="color:red">
-                        <?php echo @$_GET['invalido']; ?>
-                    </p>
-                </div>
-
-            </div>
-        </div>
+<nav class="indigo lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Voto Online</a>                        
     </div>
+  </nav>
+  <div class="section"></div>
+  <main>
+    <center>
+      <!<img class="responsive-img" style="width: 250px;" src="src/text.gif" />
+      <div class="section"></div>
+	  <p align="center" style="color:orange;">
+				<?php echo @$_GET['sucesso']; ?>
+			</p>
+			<p align="center" style="color:red">
+				<?php echo @$_GET['erro']; ?>
+			</p>
+      <h5 class="indigo-text"><b>Login</b></h5>
+      <div class="section"></div>
 
-    <div id="dropDownSelect1"></div>
+      <div class="container">
+        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
-    <!--===============================================================================================-->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/animsition/js/animsition.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/daterangepicker/moment.min.js"></script>
-    <script src="vendor/daterangepicker/daterangepicker.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/countdowntime/countdowntime.js"></script>
-    <!--===============================================================================================-->
-    <script src="js/main.js"></script>
+          <form class="col s12" method="post" action="login.php">
+            <div class='row'>
+              <div class='col s12'>
+              </div>
+            </div>
 
+            <div class='row'>
+              <div class='input-field col s12'>
+                <input class='validate' type='email' name='email' id='email' />
+                <label for='email'>Insira seu e-mail</label>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+                <input class='validate' type='password' name='password' id='password' />
+                <label for='password'>Insira sua senha</label>
+              </div>              
+            </div>
+
+            <br />
+            <center>
+              <div class='row'>
+                <button type='submit' id='sub' name='sub' class='col s12 btn btn-large waves-effect indigo'>Login</button>
+              </div>
+            </center>
+          </form>
+		  <div>			
+		  </div>
+        </div>
+      </div>
+    </center>
+
+    <div class="section"></div>
+    <div class="section"></div>
+  </main>
+  
+  <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
 </body>
-
+<?php include 'footer.html';?>
 </html>

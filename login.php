@@ -3,10 +3,10 @@
    session_start();   
 
    if(isset($_POST['sub'])){
-     $usuario = $_POST['usuario'];
-     $password = md5($_POST['senha']);
+     $email = $_POST['email'];
+     $password = md5($_POST['password']);
 
-     $query = "select * from usuarios where nome='$usuario' and ativo='1'";
+     $query = "select * from usuarios where email='$email' and ativo='1'";
      $result = mysqli_query($conn, $query);
      $found_num_rows = mysqli_num_rows($result);
 
@@ -14,20 +14,17 @@
 	   $dbarray = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
 	   if($password == $dbarray["SENHA"]){
-		   $_SESSION['login_user']=$usuario;
-		   $_SESSION['login_admin']=$dbarray["ADMIN"];
-			  header("location: dashboard.php");
-		   #  header("location:index.php?success=Login Sucessfull");
-		   #  header("refresh: 3; url=welcome.php");
+		   $_SESSION['login_user']=$dbarray["ID"];
+		   $_SESSION['login_name']=$dbarray["NOME"];
+		   $_SESSION['login_admin']=$dbarray["ADMIN"];			  
+		   header("refresh: 1; url=dashboard.php");
 	   }
 	   else{
-			header("location:index.php?invalido=Senha incorreta. <br>Tente novamente.");
-			echo htmlspecialchars($dbarray['senha']);
-			echo htmlspecialchars($password);
+			header("location:index.php?erro=Senha incorreta. <br>Tente novamente.");
 		} 
 		 }
 	else{
-		header("location:index.php?invalido=Usuário incorreto. <br>Tente novamente.");
+		header("location:index.php?erro=Usuário incorreto. <br>Tente novamente.");
 	}
    }
    mysqli_close($conn);
