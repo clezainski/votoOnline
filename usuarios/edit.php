@@ -30,6 +30,9 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
         }
     }
 }
+else{
+	header("location:../dashboard.php");	
+	}
 
 ?>
 
@@ -99,6 +102,7 @@ include '../header.php';
 </body>
 
 <?php
-include '../footer.html';
+include '../footer.php';
+mysqli_close($conn);
 ?>
 </html>

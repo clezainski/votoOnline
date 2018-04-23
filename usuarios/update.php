@@ -30,6 +30,9 @@
 			header("location:../dashboard.php?sucesso=Usuário alterado.");
 		}              
     }
+	else{
+	header("location:../dashboard.php");	
+	}
 
 	mysqli_close($conn);
     ?>

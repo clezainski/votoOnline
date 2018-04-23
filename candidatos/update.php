@@ -37,5 +37,9 @@ if (isset($_POST['sub'])) {
         header("location:../dashboard.php?erro=Erro ao alterar este candidato.");
     }
 }
+else{
+	header("location:../dashboard.php");	
+	}
 
+	mysqli_close($conn);
 ?>

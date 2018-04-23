@@ -29,7 +29,9 @@
 		else{			
 			header("location:../dashboard.php?erro=Voto não registrado.");
 		}              
-    }
+    }else{
+	header("location:../dashboard.php");	
+	}
 
 	mysqli_close($conn);
     ?>

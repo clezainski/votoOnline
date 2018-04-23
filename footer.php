@@ -1,3 +1,7 @@
+<?php
+if(@$_SESSION["login_user"]){  
+?>
+
 <footer class="page-footer light-blue lighten-1" >
     <div class="container">
         <div class="row">
@@ -22,3 +26,6 @@
     </div>
 </footer>
 	
+<?php 
+} 
+?>

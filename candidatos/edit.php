@@ -29,7 +29,11 @@ if(isset($_GET["id"]) && !empty($_GET["id"])){
 			}
 		}
 }
-		
+else{
+	header("location:../dashboard.php");	
+	}
+
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -95,6 +99,6 @@ if(isset($_GET["id"]) && !empty($_GET["id"])){
     </main>
 </body>
 
-<?php include '../footer.html';?>
+<?php include '../footer.php';?>
 
 </html>

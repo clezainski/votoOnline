@@ -22,6 +22,9 @@ if (isset($_POST['sub'])) {
         header("location:change_password.php?erro=Senha não confere.");
     }
 }
+else{
+	header("location:../dashboard.php");	
+}
 
 mysqli_close($conn);
 ?>

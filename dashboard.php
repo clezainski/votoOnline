@@ -5,7 +5,7 @@ include './db.php';
 if (@!$_SESSION["login_user"]) {
     echo " <h2>Forbidden 403</h2></br>
     <a>You don't have permission to access / on this server.<a>";
-    header("refresh:2 ; index.php");
+    header("refresh:3 ; index.php");
     
 } else if ($_SESSION["login_admin"] == true) {
 ?>
@@ -412,6 +412,6 @@ if (@!$_SESSION["login_user"]) {
         }
     }
 }
-include 'footer.html';
+include 'footer.php';
 mysqli_close($conn);
 ?>

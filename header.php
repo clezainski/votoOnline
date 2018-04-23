@@ -1,12 +1,13 @@
 <?php
-
-
-if(@!$_SESSION["login_user"]){
- echo " <h2>Forbidden 403</h2></br>
-	<a>You don't have permission to access / on this server.<a>";
- header("refresh:2 ; http://localhost/votoOnline/index.php");
-}
+if(time() - $_SESSION['timestamp'] > 60) { 
+    echo"<script>alert('Sessão expirada!');</script>";
+    unset($_SESSION['login_user'], $_SESSION['login_name'], $_SESSION['timestamp'], $_SESSION['login_admin']);
+    session_destroy();
+    header("refresh:1 ; http://localhost/votoOnline/index.php");
+    exit;
+} 
 else{
+	$_SESSION['timestamp'] = time();
 
 ?>
 <!DOCTYPE html>

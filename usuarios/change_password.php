@@ -50,7 +50,7 @@ include '../header.php';
 </body>
 
 <?php
-include '../footer.html';
+include '../footer.php';
 ?>
 
 </html>

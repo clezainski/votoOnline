@@ -16,7 +16,8 @@
 	   if($password == $dbarray["SENHA"]){
 		   $_SESSION['login_user']=$dbarray["ID"];
 		   $_SESSION['login_name']=$dbarray["NOME"];
-		   $_SESSION['login_admin']=$dbarray["ADMIN"];			  
+		   $_SESSION['login_admin']=$dbarray["ADMIN"];
+		   $_SESSION['timestamp'] = time();
 		   header("refresh: 1; url=dashboard.php");
 	   }
 	   else{

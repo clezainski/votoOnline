@@ -102,7 +102,10 @@
     </main>	
 </body>
 
-<?php include '../footer.html';?>
+<?php 
+include '../footer.php';
+mysqli_close($conn);
+?>
 
 </html>
 

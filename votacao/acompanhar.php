@@ -121,5 +121,7 @@
 		}
 	}
 		
-include '../footer.html';?>
+include '../footer.php';
+mysqli_close($conn);
+?>
 </html>

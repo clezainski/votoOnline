@@ -22,6 +22,5 @@ if($_SESSION['login_admin']==1){
 }
 else{
 	header("location:../dashboard.php?erro=Você não pode alterar os <br>status da votação.");
-}
-		
+}		
 ?>

@@ -18,12 +18,15 @@ if(isset($_GET["id"]) && !empty($_GET["id"])){
 				$query = "UPDATE usuarios SET ativo='0'
 				where id='$id'";
 				$result = mysqli_query($conn, $query);
-				header("location:../dashboard.php?sucesso=Usuário alterado.");
+				header("location:../dashboard.php?sucesso=Usuário excluído.");
 			}
 			else{
 				header("location:../dashboard.php?erro=Você não pode excluir este usuário.");
 			}
 		}
+}
+else{
+	header("location:../dashboard.php");	
 }
 		
 ?>

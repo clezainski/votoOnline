@@ -29,6 +29,10 @@
 			header("location:new.php?sucesso=Usuário cadastrado.");
 		}              
     }
+	
+	else{
+	header("location:../dashboard.php");	
+	}
 
 	mysqli_close($conn);
     ?>
