@@ -36,6 +36,7 @@
                         <div class="input-field col s12">
                             <input id="email" name="email" type="email" class="validate">
                             <label for="email">E-mail</label>
+							<small id="emailHelp" class="left form-text text-muted">Nós não iremos compartilhar seu e-mail com ninguém.</small>
 							<p align="left" style="color:red">
 								<?php echo @$_GET['erro']; ?>
 							</p>
@@ -44,7 +45,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="password" name="password" type="password" class="validate">
-                            <label for="password">Senha</label>
+                            <label for="password">Senha</label>							
                         </div>
                     </div>
                     <div class="row">
